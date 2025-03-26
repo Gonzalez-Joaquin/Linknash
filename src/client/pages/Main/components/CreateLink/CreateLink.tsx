@@ -35,7 +35,7 @@ const CreateLink = ({ state, setState, selectedId }: Props) => {
       }
       setState(false)
     } catch (error) {
-      alert(error)
+      showToast({message: error as string}, 'error')
     }
   }
 
