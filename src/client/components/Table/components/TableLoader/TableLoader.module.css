@@ -1,0 +1,70 @@
+.loader {
+  --size-bar: 0.4vmin;
+
+  display: block;
+  position: relative;
+  width: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.loader::before,
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+}
+
+/**
+	loader --4
+**/
+.loader.--4::before {
+  height: 2px;
+  width: 6vmin;
+  background-color: var(--loader-color, var(--blue));
+  animation: loader-4 0.8s cubic-bezier(0, 0, 0.03, 0.9) infinite;
+}
+
+@keyframes loader-4 {
+  0%,
+  44%,
+  88.1%,
+  100% {
+    transform-origin: left;
+  }
+
+  0%,
+  100%,
+  88% {
+    transform: scaleX(0);
+  }
+
+  44.1%,
+  88% {
+    transform-origin: right;
+  }
+
+  33%,
+  44% {
+    transform: scaleX(1);
+  }
+}
+
+/**
+	miscs
+**/
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 18vmin);
+  grid-template-rows: repeat(3, 18vmin);
+  grid-gap: 1vmin;
+}
+
+.item {
+  background: rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  transition: opacity 0.4s ease;
+}

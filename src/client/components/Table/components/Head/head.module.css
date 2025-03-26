@@ -1,0 +1,15 @@
+.head {
+  width: 100%;
+}
+
+.head > tr {
+  border-bottom: 1px solid var(--black-1);
+}
+
+.head > tr > td {
+  text-transform: uppercase;
+}
+
+.head > tr > td > * {
+  color: var(--black-4);
+}

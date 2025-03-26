@@ -1,0 +1,17 @@
+.article {
+  width: 100%;
+  height: 100%;
+}
+
+.lastOne {
+  height: 100%;
+}
+
+.name > div:last-child {
+  color: var(--black-7)k;
+  text-transform: capitalize;
+}
+
+.loading {
+  background: var(--black-1) !important;
+}

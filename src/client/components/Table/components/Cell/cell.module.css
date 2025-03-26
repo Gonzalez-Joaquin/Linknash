@@ -1,0 +1,99 @@
+.cell {
+  position: relative;
+  text-align: center;
+  color: var(--black-6);
+  transition: width ease-out 0.3s;
+}
+
+.cellContainer {
+  font: normal 600 16px/140% 'Raleway';
+  padding-inline: 1rem;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sortContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconSort {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  place-items: center;
+  rotate: 180deg;
+}
+
+.iconSort > svg > path {
+  fill: var(--black-5);
+}
+
+.onSortActive {
+  user-select: none;
+  cursor: pointer;
+}
+
+.sortActive .iconSort {
+  rotate: 360deg;
+}
+
+.tooltip {
+  position: absolute;
+  transform: translateY(-100%);
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font: normal 500 12px/13px 'Raleway';
+  background: var(--black-2);
+  box-shadow: 0px 0px 4px rgba(128, 112, 221, 0.15);
+  transition: ease 0.3s;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: var(--black-2) transparent transparent transparent;
+}
+
+.cell:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-125%);
+}
+
+.withoutTooltip .cellContainer {
+  overflow-x: unset !important;
+  white-space: unset !important;
+  text-overflow: unset !important;
+}
+
+.overflowing > span::after,
+.overflowing > span::before {
+  display: none;
+}
+
+.firstRow .tooltip {
+  transform: translateY(100%);
+}
+
+.firstRow:hover .tooltip {
+  transform: translateY(125%);
+}
+
+.firstRow .tooltip::before {
+  top: -15px;
+  bottom: unset;
+  border-color: transparent transparent var(--black-2) transparent;
+}

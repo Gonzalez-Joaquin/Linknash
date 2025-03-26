@@ -1,0 +1,150 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  z-index: 999;
+}
+
+.toast {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4.5rem;
+  margin-right: 1.5rem;
+  padding: 12px 20px;
+  background: var(--black-05);
+  border-radius: 4px;
+  box-shadow: var(--shadow-2);
+  width: 368px;
+  max-width: 90%;
+  border: 1px solid var(--black-2);
+  animation-duration: 0.35s;
+  animation-fill-mode: forwards;
+}
+
+.toast.show {
+  animation-name: slideIn;
+}
+
+.toast.hide {
+  animation-name: slideOut;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.toast::before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: var(--color-approval);
+  opacity: 0.4;
+  z-index: 2;
+}
+
+.toast::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--color-approval);
+  opacity: 0.4;
+  animation: slide 3s 0.35s ease-out forwards;
+  z-index: 1;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--border);
+  font-size: 16px;
+  cursor: pointer;
+  height: 100%;
+  display: grid;
+  place-content: center;
+}
+
+.success > .toast > div > span {
+  color: var(--color-approval);
+}
+
+.success > .toast::before {
+  background: var(--color-approval);
+}
+
+.success > .toast::after {
+  background: var(--color-approval);
+}
+
+.warning > .toast > div > span {
+  color: var(--color-attention);
+}
+
+.warning > .toast::before {
+  background: var(--color-attention);
+}
+
+.warning > .toast::after {
+  background: var(--color-attention);
+}
+
+.error > .toast > div > span {
+  color: var(--color-error);
+}
+
+.error > .toast::before {
+  background: var(--color-error);
+}
+
+.error > .toast::after {
+  background: var(--color-error);
+}
+
+.icon {
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+
+.toast > div > p {
+  color: var(--color-fuente-principal);
+}

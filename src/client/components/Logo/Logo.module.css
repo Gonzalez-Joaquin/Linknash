@@ -1,0 +1,26 @@
+.logo-container {
+  width: fit-content;
+  min-height: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+  aspect-ratio: 1/1;
+}
+
+.logo > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title {
+  font: normal 600 24px/140% "Raleway";
+  color: var(--black-7);
+}

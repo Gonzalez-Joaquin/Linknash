@@ -1,0 +1,57 @@
+.row {
+  position: relative;
+  width: 100%;
+  height: 3.5rem;
+  z-index: 1;
+  transition: ease-out 0.2s;
+}
+
+.container {
+  max-width: 30px;
+}
+
+.container > button {
+  width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+}
+
+.arrowContainer {
+  display: grid;
+  place-items: center;
+}
+
+.arrowContainer > button {
+  width: 21px;
+  height: 21px;
+  background: 0;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.arrowContainer > button svg {
+  transition: ease-out 0.2s;
+}
+
+.arrowContainer > button svg path {
+  transition: ease-out 0.3s;
+}
+
+.arrowContainer > button:active svg {
+  scale: 0.85;
+}
+
+.arrowContainer > button:is(:hover, :active) svg path {
+  fill: var(--blue);
+}
+
+.withoutArrow {
+  padding-right: 4rem;
+}

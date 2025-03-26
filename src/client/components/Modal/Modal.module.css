@@ -1,0 +1,87 @@
+.overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  background: rgba(26, 20, 31, 0);
+  transition: 0.3s ease-out;
+}
+
+.overlay.open {
+  opacity: 1;
+  background: rgba(26, 20, 31, 0.5);
+}
+
+.modal {
+  max-width: 566px;
+  max-height: calc(100% - 20%);
+  width: fit-content;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 22px 0px;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: var(--shadow-3);
+  opacity: 0;
+  transform: translateY(10%);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal > div {
+  padding-inline: 22px;
+}
+
+.overlay.open .modal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header {
+  width: 100%;
+  min-height: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.content > h3 {
+  font-feature-settings: 'liga' off, 'clig' off;
+  font: normal 700 20px/140% 'Raleway';
+  color: var(--black-8);
+  overflow: hidden;
+}
+
+.close {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background: transparent;
+  display: grid;
+  place-items: center;
+}
+
+.close:is(:hover, :active, :focus, :focus-visible, :focus-within) > svg > path {
+  fill: var(--black-4);
+}
+
+@media (min-height: 740px) {
+  .modal {
+    max-height: 695px;
+  }
+}

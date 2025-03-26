@@ -1,0 +1,40 @@
+.modal {
+  min-width: 400px;
+}
+
+.body {
+  min-height: 200px;
+}
+
+.body > div {
+  padding: 12px 0px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.body > div > div {
+  width: 100%;
+}
+
+.body > div > div > div {
+  width: 100%;
+}
+
+.body > div > div > div > input {
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+  gap: 40px;
+}
+
+.footer > button {
+  width: 100%;
+}
+
+.form {
+  padding-inline: 22px;
+}

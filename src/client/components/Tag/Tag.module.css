@@ -1,0 +1,21 @@
+.tag {
+  width: fit-content;
+  position: relative;
+  padding: 4px 12px;
+}
+
+.tag > span {
+  font: normal 500 13px/130% 'Raleway';
+  color: var(--tag-color, var(--grey-8));
+}
+
+.tag > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  background: var(--tag-color, var(--grey-8));
+  border-radius: 30px;
+}

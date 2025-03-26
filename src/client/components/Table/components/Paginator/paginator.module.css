@@ -1,0 +1,96 @@
+.foot {
+  position: relative;
+  width: 100%;
+  height: 62px;
+}
+
+.foot > tr {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 68px;
+  display: grid;
+  place-items: center;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cell > span {
+  font: normal 400 14.483px/19px 'Raleway';
+  color: var(--black);
+}
+
+.cell > span > b {
+  font: normal 800 14px/19px 'Raleway';
+}
+
+.input {
+  outline: 0;
+  width: 2.6rem;
+  padding: 0.5rem 0.4rem;
+  border-radius: 3.75px;
+  outline: 0;
+  background: #ffffff;
+  color: var(--black);
+  text-align: center;
+  font: normal 800 14px/19px 'Raleway';
+  border: 1px solid var(--black-2);
+  caret-color: var(--blue);
+  transition: ease 0.3s;
+}
+
+.input:is(:hover, :active, :focus) {
+  outline: 0;
+  border: 1px solid var(--royal-blue-4);
+}
+
+.input[type='number']::-webkit-inner-spin-button,
+.input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.buttonsContainer {
+  background: #ffffff;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 3.75px;
+  border: 0.875px solid var(--royal-blue-4);
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.buttonsContainer > button {
+  width: 100%;
+  height: 100%;
+  background: 0;
+  border: 0;
+  outline: 0;
+  display: grid;
+  place-items: center;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+
+.buttonsContainer > button svg path {
+  transition: ease 0.2s;
+}
+
+.buttonsContainer > button:is(:hover, :active) svg path {
+  stroke: var(--royal-blue);
+}
+
+.withoutFooter {
+  height: unset;
+}

@@ -1,0 +1,42 @@
+.cell > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.button {
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  background: var(--blue-05);
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  border: 0;
+  outline: 0;
+  transition: ease-out 0.2s;
+}
+
+.button > svg {
+  width: 18px;
+  height: 18px;
+  transition: ease 0.2s;
+}
+
+.button > svg > path {
+  transition: ease-out 0.2s;
+  fill: var(--blue-7);
+}
+
+.button:is(:hover, :active) {
+  background: var(--blue-1);
+}
+
+.button:is(:hover, :active) svg path {
+  fill: var(--royal-blue);
+}
+
+.button:active > svg {
+  scale: 0.9;
+}

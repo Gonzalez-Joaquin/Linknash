@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "composite": true,
+    "jsx": "react-jsx",
+    "target": "ESNext",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "isolatedModules": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "noUnusedParameters": true,
+    "emitDeclarationOnly": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["src/client", "src/server", "src/vite-env.d.ts", "src/vite-env.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

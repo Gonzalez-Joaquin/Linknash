@@ -1,0 +1,82 @@
+.inner-table-container {
+  max-height: 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: ease 0.3s;
+  animation: reveal 0.3s forwards;
+  background: #fff;
+}
+
+.isLeaving {
+  animation: hide 0.3s forwards;
+}
+
+@keyframes hide {
+  0% {
+    max-height: 300px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
+  100% {
+    max-height: 0px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes reveal {
+  0% {
+    max-height: 0px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  }
+  100% {
+    max-height: 300px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0px);
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7f7ff;
+}
+
+.row {
+  border: unset;
+}
+
+.row > th {
+  padding: 16px 24px;
+}
+
+.table th span {
+  max-width: 100%;
+  text-align: start;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font: normal 500 14px/150% Inter;
+  text-transform: uppercase;
+  color: #68688c;
+}
+
+.body td > span {
+  max-width: 100%;
+  text-align: start;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--Gris-100, #68688c);
+  font: normal 500 13px/175% Inter;
+  letter-spacing: 0.24px;
+}
+
+.body > tr {
+  border: unset;
+}
