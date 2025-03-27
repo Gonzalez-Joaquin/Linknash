@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 
+import { useToast } from "../../components/Toast"
 import { createUser } from "../../store/reducers"
 import { Button, Input } from "../../components"
 import { UserLoginDTO } from "../../@types"
@@ -27,6 +28,8 @@ const Login = () => {
     password: ""
   })
 
+  const { showToast } = useToast()
+
   const tryLogin = async () => {
     setIsLoading(true)
 
@@ -38,10 +41,10 @@ const Login = () => {
           dispatch(createUser(res))
           navigate("/dashboard")
         } else {
-          console.log("Contraseña incorrecta o Email incorrecto")
+          showToast( { message: "Contraseña incorrecta o Email incorrecto", }, 'error')
         }
       } else {
-        console.log("Usuario no encontrado")
+        showToast({  message: "Usuario no encontrado", }, 'warning')
       }
 
       setIsLoading(false)

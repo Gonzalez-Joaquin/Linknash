@@ -4,6 +4,7 @@ const ES_LINKS = {
       quantity: "Canales",
       selected: "Seleccionados ",
       cells: {
+        user: 'Usuario',
         name: "Nombre",
         url: "Sitio Web",
         creation: "Fecha de creación",

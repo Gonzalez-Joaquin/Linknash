@@ -10,5 +10,11 @@
     "email": "fabrizio.golisciano@gmail.com",
     "name": "Fabrizio Golisciano",
     "password": "fo15"
+  },
+  {
+    "id": "1f577ed9-8f1e-4755-ab97-70e45ada2f56",
+    "email": "admin",
+    "name": "Admin",
+    "password": "root"
   }
 ]

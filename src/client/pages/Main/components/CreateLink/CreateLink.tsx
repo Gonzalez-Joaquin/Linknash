@@ -4,6 +4,7 @@ import { Button, Input, Modal, ModalBody, ModalFooter } from "../../../../compon
 import { createLink, getLink, updateLink } from "../../../../utils/api"
 import { useToast } from "../../../../components/Toast"
 import style from "./CreateLink.module.css"
+import { useAppSelector } from "../../../../store/hooks"
 
 interface Props {
   state: boolean
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const CreateLink = ({ state, setState, selectedId }: Props) => {
+  const { id } = useAppSelector(state=> state.user)
   const [name, setName] = useState<string>("")
   const [url, setUrl] = useState<string>("")
 
@@ -20,7 +22,7 @@ const CreateLink = ({ state, setState, selectedId }: Props) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const data = { name, url }
+    const data = { name, url, client_id: id }
     try {
       if (selectedId) {
         await updateLink(selectedId, data)
@@ -49,7 +51,7 @@ const CreateLink = ({ state, setState, selectedId }: Props) => {
         setUrl(response.url)
         setState(true)
       } catch (error) {
-        console.log(error)
+        showToast({message: error as string}, 'error')
       }
     }
 

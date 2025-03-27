@@ -8,8 +8,12 @@ import Table, {
   TableButtons,
   TableHead
 } from "../../../../components/Table"
+
+
 import { deleteLink, getLinks } from "../../../../utils/api"
-import { ArrayLinks } from "../../../../@types"
+import { useToast } from "../../../../components/Toast"
+import users from "../../../../data/users.json"
+import { ArrayLinks, LinkDTO } from "../../../../@types"
 import style from "./LinksTable.module.css"
 
 const formatDate = (dateString: string) => {
@@ -41,16 +45,17 @@ const LinksTable = ({ changeSelectId }: Props) => {
     state: false
   })
 
+  const { showToast} = useToast()
+
   const fetchData = async () => {
     setIsLoading(true)
     try {
       const response = await getLinks()
-      console.log(response)
       setTotalPages(response.totalPages)
-      setAll(response.content)
+      setAll(response.content.map((item: LinkDTO) => ({ ...item, client_id: users.find((user) => user.id === item.client_id)?.name })))
       setPageSize(response.pageable.pageSize)
     } catch (error) {
-      console.log(error)
+              showToast({message: error as string}, 'error')
     }finally {
       setIsLoading(false)
     }
@@ -63,7 +68,7 @@ const LinksTable = ({ changeSelectId }: Props) => {
       fetchData()
       setDeleteLoader({ id: undefined, state: false })
     } catch (error) {
-      console.log(error)
+              showToast({message: error as string}, 'error')
       setDeleteLoader({ id: undefined, state: false })
     }
   }
@@ -104,6 +109,7 @@ const LinksTable = ({ changeSelectId }: Props) => {
             <TableHead
               page={"links"}
               columns={[
+                { name: "user", align: "start" },
                 { name: "name", align: "start" },
                 { name: "url", align: "center" },
                 { name: "creation", align: "end" },
@@ -111,7 +117,7 @@ const LinksTable = ({ changeSelectId }: Props) => {
                 { name: "actions" }
               ]}
             />
-            <Body colSpan={5}>
+            <Body colSpan={6}>
               {all?.map((item, idx) => (
                 <Fragment key={item.id}>
                   <Row
@@ -119,6 +125,9 @@ const LinksTable = ({ changeSelectId }: Props) => {
                       deleteLoader.id === item.id && deleteLoader.state ? style.loading : ""
                     }
                   >
+                    <Cell>
+                      {item.client_id}
+                    </Cell>
                     <Cell align="start" className={style.name}>
                       {item.name}
                     </Cell>

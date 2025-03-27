@@ -2,7 +2,7 @@ import axios from "axios"
 
 const API_BASE_URL = import.meta.env.VITE_EXPRESS_LINKS_URL || "https://linknash-server-production.up.railway.app/api/links"
 
-export const createLink = async (data: { name: string; url: string }) => {
+export const createLink = async (data: { name: string; url: string, client_id: string }) => {
   try {
     const response = await axios.post(API_BASE_URL, data)
     return response.data
