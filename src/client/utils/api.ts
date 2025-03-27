@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_BASE_URL = import.meta.env.VITE_EXPRESS_LINKS_URL || "http://localhost:5000/api/links"
+const API_BASE_URL = import.meta.env.VITE_EXPRESS_LINKS_URL || "https://linknash-server-production.up.railway.app/api/links"
 
 export const createLink = async (data: { name: string; url: string }) => {
   try {
